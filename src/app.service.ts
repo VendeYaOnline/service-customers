@@ -1,4 +1,8 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Client } from './entities/auth.entity';
@@ -40,5 +44,10 @@ export class AppService {
     } else {
       return findUser.last_payment;
     }
+  }
+
+  async deleteClients() {
+    await this.clientRepository.delete({});
+    return "Eliminados correctamente"
   }
 }

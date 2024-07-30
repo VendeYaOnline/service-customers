@@ -26,4 +26,9 @@ export class AppController {
   createClient(@Body() client: CreateClientDto) {
     return this.appService.createClient(client);
   }
+
+  /*   @Delete('delete-clients')
+  deleteClient() {
+    return this.appService.deleteClients();
+  } */
 }
