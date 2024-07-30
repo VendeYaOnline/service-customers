@@ -1,4 +1,4 @@
-import { IsNumber, IsString } from 'class-validator';
+import { IsString } from 'class-validator';
 
 export class CreateClientDto {
   @IsString()
@@ -16,6 +16,6 @@ export class CreateClientDto {
   @IsString()
   last_payment: string;
 
-  @IsNumber()
-  phone: number;
+  @IsString()
+  phone: string;
 }

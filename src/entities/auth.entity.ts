@@ -21,5 +21,5 @@ export class Client {
   last_payment: Date;
 
   @Column()
-  phone: number;
+  phone: string;
 }
