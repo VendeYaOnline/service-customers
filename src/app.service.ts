@@ -42,12 +42,15 @@ export class AppService {
     if (!findUser) {
       throw new NotFoundException(`User with email ${email} not found`);
     } else {
-      return findUser.payment_date;
+      return {
+        last_payment: findUser.last_payment,
+        payment_date: findUser.payment_date,
+      };
     }
   }
 
   async deleteClients() {
     await this.clientRepository.delete({});
-    return "Eliminados correctamente"
+    return 'Eliminados correctamente';
   }
 }
