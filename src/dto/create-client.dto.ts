@@ -17,5 +17,8 @@ export class CreateClientDto {
   last_payment: string;
 
   @IsString()
+  payment_date: string;
+
+  @IsString()
   phone: string;
 }

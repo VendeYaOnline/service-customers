@@ -42,7 +42,7 @@ export class AppService {
     if (!findUser) {
       throw new NotFoundException(`User with email ${email} not found`);
     } else {
-      return findUser.last_payment;
+      return findUser.payment_date;
     }
   }
 

@@ -16,7 +16,7 @@ import { ConfigModule } from '@nestjs/config';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
       entities: [Client],
-      synchronize: true, // * Opcional: sincroniza automáticamente las estructuras de la base de datos (no recomendado en producción)
+      synchronize: false, // * Opcional: sincroniza automáticamente las estructuras de la base de datos (no recomendado en producción)
     }),
 
     TypeOrmModule.forFeature([Client]),
