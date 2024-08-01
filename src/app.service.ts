@@ -49,6 +49,11 @@ export class AppService {
     }
   }
 
+  async getClients() {
+    const clients = await this.clientRepository.find({});
+    return clients;
+  }
+
   async deleteClients() {
     await this.clientRepository.delete({});
     return 'Eliminados correctamente';

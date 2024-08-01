@@ -22,6 +22,11 @@ export class AppController {
     }
   }
 
+  @Get('get-all-clients')
+  getAllClients() {
+    return this.appService.getClients();
+  }
+
   @Post('create-client')
   createClient(@Body() client: CreateClientDto) {
     return this.appService.createClient(client);
