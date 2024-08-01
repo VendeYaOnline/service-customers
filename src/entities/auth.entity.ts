@@ -9,20 +9,23 @@ export class Client {
   name: string;
 
   @Column()
-  lastname: string;
-
-  @Column()
   email: string;
 
   @Column()
-  state: string;
+  state: boolean;
 
   @Column()
   last_payment: Date;
 
   @Column()
-  payment_date: Date;
+  cutting_day: number;
+
+  @Column()
+  date_purchase: Date;
 
   @Column()
   phone: string;
+
+  @Column()
+  type: string;
 }

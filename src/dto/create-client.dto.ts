@@ -1,24 +1,27 @@
-import { IsString } from 'class-validator';
+import { IsBoolean, IsDate, IsNumber, IsString } from 'class-validator';
 
 export class CreateClientDto {
   @IsString()
   name: string;
 
   @IsString()
-  lastname: string;
-
-  @IsString()
   email: string;
 
-  @IsString()
-  state: string;
+  @IsBoolean()
+  state: boolean;
 
-  @IsString()
-  last_payment: string;
+  @IsDate()
+  last_payment: Date;
 
-  @IsString()
-  payment_date: string;
+  @IsNumber()
+  cutting_day: number;
+
+  @IsDate()
+  date_purchase: Date;
 
   @IsString()
   phone: string;
+
+  @IsString()
+  type: string;
 }

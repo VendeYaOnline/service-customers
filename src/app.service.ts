@@ -44,7 +44,8 @@ export class AppService {
     } else {
       return {
         last_payment: findUser.last_payment,
-        payment_date: findUser.payment_date,
+        payment_date: findUser.cutting_day,
+        state: findUser.state,
       };
     }
   }
