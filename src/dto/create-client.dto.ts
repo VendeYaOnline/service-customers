@@ -10,14 +10,14 @@ export class CreateClientDto {
   @IsBoolean()
   state: boolean;
 
-  @IsDate()
-  last_payment: Date;
+  @IsString()
+  last_payment: string;
 
   @IsNumber()
   cutting_day: number;
 
-  @IsDate()
-  date_purchase: Date;
+  @IsString()
+  date_purchase: string;
 
   @IsString()
   phone: string;
