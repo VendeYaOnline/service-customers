@@ -7,6 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Client } from './entities/auth.entity';
 import { CreateClientDto } from './dto/create-client.dto';
+import { UpdatePokemonDto } from './dto/updated-client.dto';
 
 @Injectable()
 export class AppService {
@@ -32,6 +33,30 @@ export class AppService {
         client: newClient.name,
       };
     }
+  }
+
+  async updateClient(client: UpdatePokemonDto) {
+    const { email } = client;
+
+    // Buscar el cliente existente
+    const existingClient = await this.clientRepository.findOne({
+      where: { email: email },
+    });
+
+    if (!existingClient) {
+      throw new NotFoundException('El cliente no existe');
+    }
+
+    // Actualizar la información del cliente
+    const updatedClient = this.clientRepository.merge(existingClient, client);
+
+    // Guardar los cambios
+    await this.clientRepository.save(updatedClient);
+
+    return {
+      message: 'Cliente actualizado con éxito',
+      client: updatedClient.name,
+    };
   }
 
   async getClient(email: string) {

@@ -5,9 +5,11 @@ import {
   Post,
   Query,
   BadRequestException,
+  Put,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateClientDto } from './dto/create-client.dto';
+import { UpdatePokemonDto } from './dto/updated-client.dto';
 
 @Controller()
 export class AppController {
@@ -30,6 +32,11 @@ export class AppController {
   @Post('create-client')
   createClient(@Body() client: CreateClientDto) {
     return this.appService.createClient(client);
+  }
+
+  @Put('updated-client')
+  updatedClient(@Body() client: UpdatePokemonDto) {
+    return this.appService.updateClient(client);
   }
 
   /*   @Delete('delete-clients')
